@@ -25,30 +25,30 @@ const DatePickerField = (props) =>  {
                       locale === 'FI' ? 'pp.kk.yyyy' : 'DD.MM.YYYY'
 
 
-  console.log(<DatePicker
-    locale={locale}
-    className={className}
-    disabled={disabled}
-    readOnly={readOnly}
-    showMonthDropdown
-    showYearDropdown
-    placeholderText={placeholder}
-    dateFormat="DD.MM.YYYY"
-    selected={input.value ? moment(input.value, valueDateFormat) : null}
-    minDate={minDate ? moment(minDate, 'YYYY-MM-DD') : null}
-    maxDate={maxDate ? moment(maxDate, 'YYYY-MM-DD') : null}
-    popperPlacement={alignPopperLeft ? "bottom-end" : "bottom-start"}
-    popperClassName={alignPopperLeft ? "react-datepicker-popper-align-left" : null}
-    popperModifiers={{
-      preventOverflow: {
-        enabled: true,
-        boundariesElement: "viewport"
-      }
-    }}
-    onFocus={input.onFocus}
-    onBlur={input.onBlur}
-    onChange={input.onChange}
-  />);
+  // console.log(<DatePicker
+  //   locale={locale}
+  //   className={className}
+  //   disabled={disabled}
+  //   readOnly={readOnly}
+  //   showMonthDropdown
+  //   showYearDropdown
+  //   placeholderText={placeholder}
+  //   dateFormat="DD.MM.YYYY"
+  //   selected={input.value ? moment(input.value, valueDateFormat) : null}
+  //   minDate={minDate ? moment(minDate, 'YYYY-MM-DD') : null}
+  //   maxDate={maxDate ? moment(maxDate, 'YYYY-MM-DD') : null}
+  //   popperPlacement={alignPopperLeft ? "bottom-end" : "bottom-start"}
+  //   popperClassName={alignPopperLeft ? "react-datepicker-popper-align-left" : null}
+  //   popperModifiers={{
+  //     preventOverflow: {
+  //       enabled: true,
+  //       boundariesElement: "viewport"
+  //     }
+  //   }}
+  //   onFocus={input.onFocus}
+  //   onBlur={input.onBlur}
+  //   onChange={input.onChange}
+  // />);
 
   return (
     <div>

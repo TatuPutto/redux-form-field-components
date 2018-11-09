@@ -12,7 +12,7 @@ const CheckboxButton = (props) => {
     transparent,
     tabIndex,
   } = props
-
+  
   const checked = input.value === true
   const labelClassName = classnames('clickable', {
     'btn btn-outline-secondary': !transparent,

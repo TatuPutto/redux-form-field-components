@@ -7,7 +7,7 @@ const defaultStyles = {
 }
 
 const renderTextInput = (props) => {
-  console.log(props);
+  // console.log(props);
   const {
     input,
     className,

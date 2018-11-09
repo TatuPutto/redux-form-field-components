@@ -1,18 +1,21 @@
 import React from 'react'
-import { bool, object, string } from 'prop-types'
+import { bool, object, oneOfType, string } from 'prop-types'
 import classnames from 'classnames'
 
-const Radio = (props) => {
+const RadioButton = (props) => {
   const {
     input,
+    children,
+    checkedValue,
     disabled,
     id,
     size,
-    text,
-    valueToSet
   } = props
 
-  const checked = input.value === valueToSet
+  console.log('RadioButton', input);
+
+  const value = checkedValue || children.trim().toLowerCase()
+  const checked = input.value === value
   const labelClassName = classnames('btn btn-outline-secondary', {
     "active": checked,
     "disabled": disabled,
@@ -27,24 +30,24 @@ const Radio = (props) => {
         id={id}
         checked={checked}
         disabled={disabled}
-        onChange={() => input.onChange(valueToSet)}
+        onChange={() => input.onChange(value)}
       />
-      {" " + text}
+      {children}
     </label>
   )
 }
 
-Radio.defaultProps = {
+RadioButton.defaultProps = {
   disabled: false
 }
 
-Radio.propTypes = {
+RadioButton.propTypes = {
   input: object.isRequired,
+  children: oneOfType([object, string]).isRequired,
   id: string.isRequired,
-  text: string.isRequired,
-  valueToSet: string.isRequired,
+  checkedValue: string,
   disabled: bool,
   size: string
 }
 
-export default Radio
+export default RadioButton
