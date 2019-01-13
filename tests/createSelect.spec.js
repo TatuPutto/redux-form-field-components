@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Selectize } from '../src'
+import Select from 'react-select'
+import createSelectize from '../src/createSelectize'
 
 describe('RFAsyncSelect', () => {
 
@@ -131,6 +132,7 @@ describe('RFAsyncSelect', () => {
   ////
 
   const shallowWrapper = () => {
+    const Selectize = createSelectize(Select)
     return shallow(<Selectize {...props} />)
   }
 

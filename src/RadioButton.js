@@ -35,10 +35,6 @@ const RadioButton = (props) => {
   )
 }
 
-RadioButton.defaultProps = {
-  disabled: false
-}
-
 RadioButton.propTypes = {
   input: object.isRequired,
   children: oneOfType([object, string]).isRequired,
@@ -46,6 +42,10 @@ RadioButton.propTypes = {
   checkedValue: string,
   disabled: bool,
   size: string
+}
+
+RadioButton.defaultProps = {
+  disabled: false
 }
 
 export default RadioButton
