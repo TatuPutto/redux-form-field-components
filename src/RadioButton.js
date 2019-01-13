@@ -12,8 +12,6 @@ const RadioButton = (props) => {
     size,
   } = props
 
-  console.log('RadioButton', input);
-
   const value = checkedValue || children.trim().toLowerCase()
   const checked = input.value === value
   const labelClassName = classnames('btn btn-outline-secondary', {
@@ -25,20 +23,16 @@ const RadioButton = (props) => {
   return (
     <label htmlFor={id} className={labelClassName}>
       <input
-        {...input}
         type="radio"
         id={id}
         checked={checked}
         disabled={disabled}
+        value={value}
         onChange={() => input.onChange(value)}
       />
       {children}
     </label>
   )
-}
-
-RadioButton.defaultProps = {
-  disabled: false
 }
 
 RadioButton.propTypes = {
@@ -48,6 +42,10 @@ RadioButton.propTypes = {
   checkedValue: string,
   disabled: bool,
   size: string
+}
+
+RadioButton.defaultProps = {
+  disabled: false
 }
 
 export default RadioButton
