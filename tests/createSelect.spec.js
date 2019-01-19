@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import Select from 'react-select'
 import createSelectize from '../src/createSelectize'
 
-describe('RFAsyncSelect', () => {
+describe('createSelectize', () => {
 
   let props
 
