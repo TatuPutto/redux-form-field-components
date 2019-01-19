@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, object, oneOfType, string } from 'prop-types'
+import { bool, func, object, oneOfType, string } from 'prop-types'
 import classnames from 'classnames'
 
 const RadioButton = (props) => {
@@ -12,8 +12,7 @@ const RadioButton = (props) => {
     size,
   } = props
 
-  const value = checkedValue || children.trim().toLowerCase()
-  const checked = input.value === value
+  const checked = input.value === checkedValue
   const labelClassName = classnames('btn btn-outline-secondary', {
     "active": checked,
     "disabled": disabled,
@@ -21,26 +20,27 @@ const RadioButton = (props) => {
   })
 
   return (
-    <label htmlFor={id} className={labelClassName}>
+    <label htmlFor={id || null} className={labelClassName}>
       <input
         type="radio"
         id={id}
         checked={checked}
         disabled={disabled}
-        value={value}
-        onChange={() => input.onChange(value)}
+        value={checkedValue}
+        onClick={() => console.log('clicked')}
+        onChange={() => input.onChange(checkedValue)}
       />
-      {children}
+      {typeof children === 'function' ? children() : children}
     </label>
   )
 }
 
 RadioButton.propTypes = {
   input: object.isRequired,
-  children: oneOfType([object, string]).isRequired,
-  id: string.isRequired,
-  checkedValue: string,
+  checkedValue: oneOfType([bool, string]).isRequired,
+  children: oneOfType([func, object, string]).isRequired,
   disabled: bool,
+  id: string,
   size: string
 }
 

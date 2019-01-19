@@ -27,15 +27,8 @@ const renderTextInput = (props) => {
 
   return (
     <Fragment>
-      {label &&
-        <label htmlFor={input.name} className={labelClassName}>
-          {required &&
-            <span>{"* "}</span>
-          }
-          {label}
-        </label>
-      }
       <div>
+        {props.renderLabel && props.renderLabel()}
         <input
           {...input}
           id={input.name}
@@ -45,7 +38,7 @@ const renderTextInput = (props) => {
         />
       </div>
     </Fragment>
-  );
+  )
 }
 
 
