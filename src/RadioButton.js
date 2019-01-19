@@ -23,11 +23,10 @@ const RadioButton = (props) => {
     <label htmlFor={id || null} className={labelClassName}>
       <input
         type="radio"
-        id={id}
+        id={id || null}
         checked={checked}
         disabled={disabled}
         value={checkedValue}
-        onClick={() => console.log('clicked')}
         onChange={() => input.onChange(checkedValue)}
       />
       {typeof children === 'function' ? children() : children}

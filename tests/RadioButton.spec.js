@@ -47,14 +47,14 @@ describe('RadioButton', () => {
   })
 
   it('does not convert boolean values to string onChange', () => {
-    const wrap = mount(
+    const wrapper = mount(
       <Provider store={store}>
         <RadioButtonTestForm initialValues={{ fixedPeriod: false }} />
       </Provider>
     )
 
     // simulate redux-form onChange event
-    wrap.find('input').simulate('change')
+    wrapper.find('input').simulate('change')
 
     // find @@redux-form/CHANGE action payload
     const changeActionPayload = findChangeActionPayload(store)
